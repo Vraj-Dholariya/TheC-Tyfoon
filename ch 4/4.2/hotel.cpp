@@ -44,6 +44,7 @@ public:
              << hotel_name << " "
              << hotel_type << " "
              << hotel_rating << " "
+             << hotel_location << " " 
              << hotel_establish_year << " "
              << hotel_staff_quantity << " "
              << hotel_room_quantity << endl;
