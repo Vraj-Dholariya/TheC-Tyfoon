@@ -12,7 +12,8 @@ private:
     static int trainCount;
 
 public:
-    Train() {
+    Train()   
+    {
         trainNumber = 0;
         strcpy(trainName, "");
         strcpy(source, "");
@@ -21,7 +22,8 @@ public:
         trainCount++;
     }
 
-    Train(int trainNumber, char trainName[], char source[], char destination[], char trainTime[]) {
+    Train(int trainNumber, char trainName[], char source[], char destination[], char trainTime[]) 
+   {
         this->trainNumber = trainNumber;
         strcpy(this->trainName, trainName);
         strcpy(this->source, source);
@@ -30,11 +32,13 @@ public:
         trainCount++;
     }
 
-    ~Train() {
+    ~Train()
+    {
         trainCount--;
     }
 
-    void inputTrainDetails() {
+    void inputTrainDetails()
+    {
         cout << "Enter Train Number: ";
         cin >> trainNumber;
 
@@ -72,19 +76,20 @@ public:
 
 int Train::trainCount = 0;
 
-class RailwayResevationSystem {
+class RailwaySystem {
 private:
-    Train trains[10];
-    int totalTrains;
+    Train trains[100];
+    int totalTrains = 0;
 
 public:
-    RailwayResevationSystem() : totalTrains(0) {}
-
-    void addNewTrain() {
-        if (totalTrains < 10) {
+    void addNewTrain() 
+    {
+        if (totalTrains < 100) {
             trains[totalTrains].inputTrainDetails();
             totalTrains++;
-        } else {
+        }
+        else
+        {
             cout << "Maximum train limit reached!" << endl;
         }
     }
@@ -92,7 +97,9 @@ public:
     void displayAllTrains() const {
         if (totalTrains == 0) {
             cout << "No trains to display!" << endl;
-        } else {
+        } 
+        else
+        {
             for (int i = 0; i < totalTrains; i++) {
                 cout << "Train " << i + 1 << " details:" << endl;
                 trains[i].displayTrainDetails();
@@ -102,15 +109,18 @@ public:
 
     void searchTrainByNumber(int number) const {
         bool found = false;
-        for (int i = 0; i < totalTrains; i++) {
-            if (trains[i].getTrainNumber() == number) {
+        for (int i = 0; i < totalTrains; i++)
+            {
+            if (trains[i].getTrainNumber() == number)
+            {
                 cout << "Train details:" << endl;
                 trains[i].displayTrainDetails();
                 found = true;
                 break;
             }
         }
-        if (!found) {
+        if (!found)
+        {
             cout << "Train with number " << number << " not found!" << endl;
         }
     }
