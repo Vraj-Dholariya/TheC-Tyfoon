@@ -5,7 +5,7 @@ using namespace std;
 
 int main()
 {   
-    RailwayResevationSystem system;
+    RailwaySystem system;
     int choice;
     int number;
      do
